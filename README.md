@@ -41,7 +41,7 @@ cd elk-spring-boot
 docker-compose up --build
 ```
 
-### 3. Component and it's Port
+### 3. Component and their Port
 
 |   Component   | Port   |
 | ---------------------- |
