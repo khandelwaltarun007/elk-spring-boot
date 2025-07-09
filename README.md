@@ -41,14 +41,14 @@ cd elk-spring-boot
 docker-compose up --build
 ```
 
-### 3. Component and their Port
+### 3. Components and Their Ports
 
-|   Component   | Port   |
-| ---------------------- |
-| user-service  | `9091` |
-| Logstash      | `5000` |
-| Elasticsearch | `9200` |
-| Kibana        | `5601` |
+| Component      | Port   |
+|----------------|--------|
+| user-service   | `9091` |
+| Logstash       | `5000` |
+| Elasticsearch  | `9200` |
+| Kibana         | `5601` |
 
 ### 4. Endpoints
 
