@@ -43,12 +43,12 @@ docker-compose up --build
 
 ### 3. Component and it's Port
 
-| Component     | Port |
-|----------------------|
-| user-service  | 9091 |
-| Logstash      | 5000 |
-| Elasticsearch | 9200 |
-| Kibana        | 5601 |
+|   Component   | Port   |
+| ---------------------- |
+| user-service  | `9091` |
+| Logstash      | `5000` |
+| Elasticsearch | `9200` |
+| Kibana        | `5601` |
 
 ### 4. Endpoints
 
