@@ -57,21 +57,37 @@ docker-compose up --build
 | POST   | `/users`      | Register new user |
 | GET    | `/users/{id}` | Get user by ID    |
 | GET    | `/users`      | Get all user      |
+| PUT    | `/users`      | Patch user        |
+| DELETE | `/users/{id}` | Delete user by ID |
 
-### 5. Sample
+### 5. Sample Rest Curls
 
+#### Create User
 ```bash
 curl -X POST http://localhost:8000/users \
   -H "Content-Type: application/json" \
   -d '{"username": "johndoe", "email": "john@example.com"}'
 ```
 
+#### Get all Users
 ```bash
 curl --location 'localhost:9091/api/users'
 ```
 
+#### Get user by ID
 ```bash
 curl --location 'localhost:9091/api/users/1'
+```
+#### Update user
+```bash
+curl -X PUT http://localhost:8000/users \
+  -H "Content-Type: application/json" \
+  -d '{"id": 1, "username": "johndoe", "email": "john@example.com"}'
+```
+
+#### Delete User
+```bash
+curl -X DELETE http://localhost:8000/users/1
 ```
 
 ### 6. Tear down the container

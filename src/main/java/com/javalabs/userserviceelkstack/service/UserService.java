@@ -2,11 +2,13 @@ package com.javalabs.userserviceelkstack.service;
 
 import com.javalabs.userserviceelkstack.model.User;
 import com.javalabs.userserviceelkstack.repository.UserRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Service
 public class UserService {
     private final UserRepository userRepository;
@@ -16,6 +18,8 @@ public class UserService {
     }
 
     public List<User> getAllUsers() {
+        List<User> users = userRepository.findAll();
+        log.info("Total number of fetched users : {}", users.size());
         return userRepository.findAll();
     }
 
