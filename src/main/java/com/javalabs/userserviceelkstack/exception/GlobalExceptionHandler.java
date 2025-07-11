@@ -24,6 +24,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	public ResponseEntity<Object> handleEntityNotFoundException(EntityNotFoundException ex, WebRequest request) {
 		ErrorResponse errorResponse = new ErrorResponse(LocalDate.now(), ex.getMessage(), request.getDescription(false),
 														HttpStatus.NOT_FOUND.value());
+		ex.printStackTrace();
+		logger.error(ex.getMessage(), ex);
 		return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
 	}
 

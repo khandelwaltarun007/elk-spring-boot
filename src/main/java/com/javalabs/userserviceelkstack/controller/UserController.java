@@ -1,5 +1,6 @@
 package com.javalabs.userserviceelkstack.controller;
 
+import com.javalabs.userserviceelkstack.exception.EntityNotFoundException;
 import com.javalabs.userserviceelkstack.model.User;
 import com.javalabs.userserviceelkstack.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -32,7 +33,7 @@ public class UserController {
                 })
                 .orElseThrow(() -> {
                     log.warn("User not found with id {}", id);
-                    return new RuntimeException("User not found with id " + id);
+                    return new EntityNotFoundException("User not found with id " + id);
                 });
     }
 
