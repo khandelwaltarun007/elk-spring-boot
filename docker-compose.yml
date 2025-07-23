@@ -22,7 +22,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - ./docker-config/pipeline:/usr/share/logstash/pipeline
+      - "//c/Tarun/STS\ Workspace/user-service-elk-stack/docker-config/pipeline:/usr/share/logstash/pipeline"
     networks:
       - elk
 
@@ -104,21 +104,21 @@ services:
     image: jenkins/jenkins:latest
     container_name: jenkins
     ports:
-      - "5000:8080"
+      - "6000:8080"
       - "50000:50000"
     environment:
       - JENKINS_OPTS=--prefix=/jenkins
     volumes:
       - jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
-      - "//c/Learning/STS Workspace/Spring Boot/sms:/sms"
+      - "//c/Tarun/STS\ Workspace/user-service-elk-stack/docker-config/jenkins:/jenkins"
     restart: always
     networks:
       - backend
 
   redis:
     image: redis:latest
-    container_name: redis_container
+    container_name: redis
     restart: always
     ports:
       - "6379:6379"
@@ -134,8 +134,8 @@ services:
     ports:
       - "8443:443"
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - "//c/Tarun/Docker\ Tutorial/nginx/certs:/etc/nginx/certs:ro"
+      - "//c/Tarun/STS\ Workspace/user-service-elk-stack/docker-config/nginx/nginx.conf:/etc/nginx/nginx.conf:ro"
+      - "//c/Tarun/STS\ Workspace/user-service-elk-stack/docker-config/nginx/certs:/etc/nginx/certs:ro"
     depends_on:
       - jenkins
       - kafka-ui
